@@ -7,7 +7,9 @@ const app = express()
 app.use(express.json())
 
 const cors = require('cors')  
-app.use(cors({ origin: "http://localhost:4200" }));
+app.use(cors({
+  origin: process.env.FRONTEND_URL || "http://localhost:4200"
+}));
 
 const userController = require('./routers/user.router')
 const productController = require('./routers/product.router') 
@@ -25,6 +27,6 @@ app.use((err, req, res, next) => {
 });
 
 
-const port = 3000
+const port = process.env.PORT || 3000
 app.listen(port , () => {
   console.log(`Server is running on port ${port}`)})

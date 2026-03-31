@@ -1,0 +1,27 @@
+<section class="slider">
+  <div class="container">
+    <div class="side-bar">
+      <h2><i class="fa-solid fa-bars"></i>Shop by Department</h2>
+      <a href="#">All Categories</a>
+      <a href="#">Best Seller Products</a>
+      <a href="#">New Arrival</a>
+      <a href="#">Top 10 Offers</a>
+      <a href="#">Phone & tablet</a>
+      <a href="#">Electronics & Digital</a>
+      <a href="#">Fashion & Clothings</a>
+      <a href="#">Jewelry & Watches</a>
+      <a href="#">TV & Audio</a>
+    </div>
+
+<!-- Carousel -->
+
+<div class="slide-swp">
+  <ngx-slick-carousel class="carousel" [config]="slideConfig">
+    <div ngxSlickItem *ngFor="let slide of slides" class="slide">
+      <img [src]="slide.img" alt="Slider Image">
+    </div>
+  </ngx-slick-carousel>
+</div>
+
+  </div>
+</section>

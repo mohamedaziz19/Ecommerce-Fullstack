@@ -1,0 +1,118 @@
+<!-- Font Awesome -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+/>
+
+<header>
+  <div class="container top-nav">
+
+    <!-- Search Input -->
+  <form action="" class="search">
+    <input type="search" placeholder="Search For Products... " name="searchQuery"
+      [(ngModel)]="searchQuery"
+      (input)="onSearchChange()" />
+    <button type="button" (click)="filterProducts()">Search</button>
+  </form>
+  
+  <div *ngIf="searchResults.length > 0" class="search-results">
+    <ul>
+      <li *ngFor="let product of searchResults">
+        <a (click)="selectProduct(product)">{{ product.name }}</a>
+      </li>
+    </ul>
+  </div>
+    
+
+    <!--  Icon Header -->
+    <div class="cart-header">
+      <div (click)="openCart()" class="icon-cart">
+        <i class="fa-solid fa-bag-shopping" routerLink="/cart"></i>
+        <!-- Num Of Items Select  -->
+        <span class="count-item-head">{{ cartItemCount }}</span>
+      </div>
+      <!-- Price -->
+      <div class="total-price">
+        <p>My Cart :</p>
+        <p class="price-cart-head">$ {{ cartTotal }}</p>
+      </div>
+    </div>
+  </div>
+
+  <nav>
+    <!-- Links -->
+    <div class="links container">
+
+      <ul id="menu">
+        <span class="bg-overlay"></span>
+        <li><a routerLink="home" routerLinkActive="active">Home</a></li>
+        <li>
+          <a routerLink="all-products" routerLinkActive="active"
+            >All Products</a
+          >
+        </li>
+        <li>
+          <a routerLink="about" routerLinkActive="active"> About Us Product</a>
+        </li>
+        <li><a routerLink="contact" routerLinkActive="active">Contact</a></li>
+      </ul>
+
+      <!-- Login & Sign Up -->
+      <div class="login-sign">
+        <a *ngIf="!isLoginPage" routerLink="/login" routerLinkActive="active">
+          Log IN <i class="fa-solid fa-right-to-bracket"></i>
+        </a>
+
+        <a *ngIf="!isSignupPage" routerLink="/signup" routerLinkActive="active">
+          Sign Up <i class="fa-solid fa-user-plus"></i>
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- Cart -->
+<div class="cart" [class.active]="isCartOpen">
+  <div class="top-cart">
+    <h3>
+      My Cart <span class="count-item-cart">({{ cartItemCount }} Items)</span>
+    </h3>
+    <span class="close-cart" (click)="closeCart()">
+      <i class="fa-regular fa-circle-xmark"></i>
+    </span>
+  </div>
+
+  <div class="items-in-cart">
+
+    <div *ngFor="let item of cartItems" class="cart-item">
+      <div class="product-info">
+        <img
+          [src]="item.imageURL"
+          alt="{{ item.name }}"
+          class="cart-item-image"
+        />
+        <div class="product-details">
+          <h4 class="product-name">{{ item.name }}</h4>
+          <p class="product-price">Price: ${{ item.price }}</p>
+        </div>
+      </div>
+      <button (click)="removeFromCart(item)" class="remove-item-btn">
+        <i class="fa-solid fa-trash-can"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="bottom-cart">
+    <div class="total">
+      <p>Cart Subtotal</p>
+      <p class="price-cart-total">${{ cartTotal }}</p>
+    </div>
+  </div>
+
+  <div class="button-cart">
+    <a routerLink="/all-products" routerLinkActive="active" class="btn-cart"
+      >Shop More</a
+    >
+    <a routerLink="/checkout" class="btn-cart trans-bg">Proceed to checkout</a>
+  </div>
+</div>

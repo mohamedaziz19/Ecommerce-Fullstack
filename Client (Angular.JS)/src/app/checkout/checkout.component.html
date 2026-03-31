@@ -1,0 +1,111 @@
+<section class="checkout">
+  <div class="container">
+    <form #checkoutForm="ngForm" (ngSubmit)="onSubmit(checkoutForm)">
+      <div class="address">
+        <h2>Delivery Address</h2>
+
+        <div class="inputs">
+          <input
+            type="email"
+            name="email"
+            [(ngModel)]="user.email"
+            required
+            #email="ngModel"
+            placeholder="Enter Your Email . . ."
+          />
+          <div class="msg" *ngIf="email.invalid && email.touched">
+            <span *ngIf="email.errors?.['required']">*Email is required*</span>
+            <span *ngIf="email.errors?.['email']">*Invalid email*</span>
+          </div>
+        </div>
+
+        <div class="inputs">
+          <input
+            type="text"
+            name="name"
+            [(ngModel)]="user.name"
+            required
+            #name="ngModel"
+            placeholder="Enter Your Name . . ."
+          />
+          <div class="msg" *ngIf="name.invalid && name.touched">
+            <span *ngIf="name.errors?.['required']">*Name is required*</span>
+          </div>
+        </div>
+
+        <div class="inputs">
+          <input
+            type="text"
+            name="address"
+            [(ngModel)]="user.address"
+            required
+            #address="ngModel"
+            placeholder="Enter Your Address . . ."
+          />
+          <div class="msg" *ngIf="address.invalid && address.touched">
+            <span *ngIf="address.errors?.['required']"
+              >*Address is required*</span
+            >
+          </div>
+        </div>
+
+        <div class="inputs">
+          <input
+            type="number"
+            name="phone"
+            [(ngModel)]="user.phone"
+            required
+            #phone="ngModel"
+            placeholder="Enter Your Phone . . ."
+          />
+          <div class="msg" *ngIf="phone.invalid && phone.touched">
+            <span *ngIf="phone.errors?.['required']">*Phone is required*</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="coupon">
+        <h2>Coupon Code</h2>
+        <div class="inputs">
+          <label for="coupon">Coupon Code</label>
+          <input
+            type="text"
+            name="coupon"
+            [(ngModel)]="user.couponCode"
+            placeholder="Enter Your Coupon Code . . ."
+          />
+        </div>
+      </div>
+      <button type="submit" class="button-div" [disabled]="checkoutForm.invalid || !checkoutForm.valid">
+        Place Order
+      </button>
+    </form>
+
+    <div class="order-summary">
+      <h1>Order Summary</h1>
+
+      <div class="items">
+        <div *ngFor="let item of cartItems" class="item-cart">
+          <img
+            *ngIf="!item.image"
+            [src]="item.imageURL"
+            alt="{{ item.name }}"
+          />
+          <div class="content">
+            <h4>{{ item.name }}</h4>
+            <p class="price-cart">
+              Price: <span>${{ item.price }}</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="total">
+        <p>Total</p>
+        <span>${{ totalAmount }}</span>
+      </div>
+
+ 
+    </div>
+  </div>
+</section>

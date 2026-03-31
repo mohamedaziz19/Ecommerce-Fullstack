@@ -1,0 +1,41 @@
+<div class="products">
+  <h1>Manage Products</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Img</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products">
+        <td>{{ product.name }}</td>
+        <td>{{ product.price }}</td>
+        <td><img [src]="product.imageURL" alt="{{ product.name }}" /></td>
+
+        <td>
+          <button (click)="openEditModal(product)" class="edit">Edit</button> 
+          <button (click)="deleteProduct(product._id)" class="delete">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<div *ngIf="selectedProduct">
+  <h2>Edit Product</h2>
+  <form (ngSubmit)="updateProduct(selectedProduct._id, updatedProductData)">
+    <div>
+      <label for="name">Product Name</label>
+      <input type="text" [(ngModel)]="updatedProductData.name" name="name" required>
+    </div>
+    <div>
+      <label for="price">Product Price</label>
+      <input type="number" [(ngModel)]="updatedProductData.price" name="price" required>
+    </div>
+    <button type="submit">Update Product</button>
+    <button type="button" (click)="selectedProduct = null">Cancel</button>
+  </form>
+</div>

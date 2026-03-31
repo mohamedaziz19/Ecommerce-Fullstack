@@ -1,0 +1,15 @@
+<div class="dashboard">
+  <nav class="side-menu">
+    <ul>
+      <li><a routerLink="/dashboard/manage-users">Manage Users</a></li>
+      <li><a routerLink="/dashboard/manage-products">Manage Products</a></li>
+      <li><a routerLink="/dashboard/manage-orders">Manage Orders</a></li>
+      <li><a routerLink="/dashboard/add-product">Add New Product</a></li>
+    </ul>
+    <button (click)="logout()" class="logout-btn">Logout</button>
+  </nav>
+
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+</div>

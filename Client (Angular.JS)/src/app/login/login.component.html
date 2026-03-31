@@ -1,0 +1,73 @@
+<section
+  class="login sec-form"
+  *ngIf="showForm"
+  (click)="onBackgroundClick($event)"
+>
+  <div class="form-container">
+    <p class="title">Welcome Back</p>
+
+    <form #loginForm="ngForm" (ngSubmit)="login(loginForm)" class="form">
+
+      <!-- Error message -->
+      <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+
+
+      <div class="form-group">
+        <input
+          type="email"
+          placeholder="Email"
+          ngModel
+          name="email"
+          #email="ngModel"
+          required
+          [class.invalid]="email.invalid && email.touched"
+        />
+        <div *ngIf="email.invalid && email.touched" class="error-text">
+          Please enter a valid email.
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <input
+          type="password"
+          placeholder="Password"
+          ngModel
+          name="password"
+          #password="ngModel"
+          required
+          [class.invalid]="password.invalid && password.touched"
+        />
+        <div *ngIf="password.invalid && password.touched" class="error-text">
+          Password is required.
+        </div>
+      </div>
+
+
+      <p class="page-link">
+        <a href="#" class="page-link-lable">Forgot Password?</a>
+      </p>
+
+      <button class="form-btn" [disabled]="loginForm.invalid">Login</button>
+    </form>
+
+    <!-- Sign-up Link -->
+    <p class="sign-up-label">
+      Don't have an account?
+      <a routerLink="/signup" class="sign-up-link">Sign-up</a>
+    </p>
+
+    <!-- Social Login Buttons -->
+    <div class="btns-container">
+      <div class="apple-login-btn">
+        <i class="fa-brands fa-apple"></i>
+        <span>Login With Apple</span>
+      </div>
+
+      <div class="google-login-btn">
+        <i class="fa-brands fa-google"></i>
+        <span>Login With Google</span>
+      </div>
+    </div>
+  </div>
+</section>

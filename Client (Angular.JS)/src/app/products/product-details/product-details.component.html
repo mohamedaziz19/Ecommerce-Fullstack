@@ -1,0 +1,7 @@
+<div class="product-details">
+  <h2>{{ product.name }}</h2>
+  <img [src]="product.imageURL" alt="{{ product.name }}" />
+  <p><strong>Price:</strong> {{ product.price | currency }}</p>
+  <p><strong>Description:</strong> {{ product.description }}</p>
+  <button routerLink="/" class="btn back">Back to Products</button>
+</div>

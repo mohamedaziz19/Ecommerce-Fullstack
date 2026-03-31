@@ -1,0 +1,42 @@
+<section class="orders-management">
+  <h1>Orders Management</h1>
+
+  <table class="orders-table">
+    <thead>
+      <tr>
+        <th>Order ID</th>
+        <th>User Name</th>
+        <th>Address</th>
+        <th>Phone</th>
+        <th>Total Amount</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of orders">
+        <td>{{ order._id }}</td>
+        <td>{{ order.name }}</td>
+        <td>{{ order.address }}</td>
+        <td>{{ order.phone }}</td>
+        <td>${{ order.totalAmount }}</td>
+        <td>
+          <select
+            [(ngModel)]="order.status"
+            (change)="updateOrderStatus(order._id, order.status)"
+          >
+            <option value="pending">Pending</option>
+            <option value="shipped">Shipped</option>
+            <option value="delivered">Delivered</option>
+            <option value="canceled">Canceled</option>
+          </select>
+        </td>
+        <td>
+          <button class="delete-btn" (click)="deleteOrder(order._id)">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>

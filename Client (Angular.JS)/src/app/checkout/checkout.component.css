@@ -1,0 +1,160 @@
+
+.checkout {
+  margin: 50px 0;
+}
+.checkout .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.checkout form {
+  width: 40%;
+}
+.checkout form h2 {
+  padding: 10px 20px;
+  background-color: var(--main-color);
+  text-transform: capitalize;
+  color: var(--white-color);
+}
+.checkout form .address,
+.checkout form .coupon {
+  background-color: #fff;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.checkout form .inputs {
+  display: flex;
+  flex-direction: column;
+  padding: 15px 20px;
+}
+.inputs input {
+  border-radius: 4px;
+  border: 1px solid #c0c0c0;
+  outline: 0;
+  padding: 10px 12px;
+  transition: 0.3s ;
+  caret-color: var(--main-color);
+  font-size: 13px;
+  transition: 0.3s;
+}
+.inputs input:focus {
+  border-color: var(--main-color);
+}
+.checkout .order-summary {
+  width: 45%;
+  background-color: #fff;
+  padding: 0 20px;
+  border-radius: 6px;
+  padding-bottom: 20px;
+}
+.checkout .order-summary h1 {
+  border-bottom: 1px solid var(--border-color);
+  background-color: var(--main-color);
+  color: var(--white-color);
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+}
+.checkout .order-summary .items {
+  border-top: 1px solid var(--border-color);
+  padding-top: 20px;
+  max-height: 370px;
+  overflow-y: auto;
+}
+.checkout .order-summary .items .item-cart {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+  background-color: #f9f9f9;
+  border-radius: 6px;
+  box-shadow: 5px 5px 10px #2196f3;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.checkout .order-summary .items .item-cart img {
+  width: 80px; 
+  height: 80px;
+  object-fit: cover; 
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+}
+.checkout .order-summary .items .item-cart .content {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.checkout .order-summary .items .item-cart .content h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--dark-color);
+  margin: 0;
+}
+.checkout .order-summary .items .item-cart p {
+  font-size: 14px;
+  color: var(--main-color);
+  margin: 0;
+  font-weight: bold;
+}
+.checkout .order-summary .total {
+  margin: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 2px solid var(--border-color);
+}
+.checkout .order-summary .total p {
+  font-weight: bold;
+  font-size: 30px;
+  color: var(--dark-color);
+  text-transform: capitalize;
+  margin-top: 8px;
+}
+.checkout .order-summary .total span {
+  font-weight: bold;
+  font-size: 25px;
+  color: var(--main-color);
+  margin-top: 8px;
+}
+.checkout button {
+  width: 100%;
+  border-radius: 4px;
+  margin: auto;
+  padding: 15px 0;
+  background-color: transparent;
+  color: var(--main-color);
+  text-transform: capitalize;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  transition: 0.3s ease-in-out;
+  border: 1px solid var(--main-color);
+}
+
+.checkout button:hover {
+  color: var(--white-color);
+  background-color: var(--main-color);
+}
+.checkout button:disabled {
+  background-color: #ddd; 
+  cursor: not-allowed;   
+  border: navajowhite;
+}
+
+.msg {
+  font-size: 14px;
+  color: red;
+  margin-left: 4px;
+}
+.msg span {
+  font-size: 14px;
+  margin-left: 4px;
+}
+input.ng-valid.ng-touched {
+  border: 1.5px solid var(--main-color-2);
+}
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}

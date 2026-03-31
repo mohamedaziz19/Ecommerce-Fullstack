@@ -1,0 +1,110 @@
+<div class="container">
+  <h3 class="products-list cr" >Products List</h3>
+
+  <div class="slide-swp">
+    <ngx-slick-carousel class="carousell" [config]="slideConfig">
+      <div ngxSlickItem *ngFor="let product of products" class="product">
+        <div class="pic">
+          <img [src]="product.imageURL" alt="{{ product.name }}" class="product-image"/>
+        </div>
+        <div class="details">
+          <h4>{{ product.name }}</h4>
+          <p class="price">Price: {{ product.price | currency }}</p>
+        </div>
+        <div class="btn">
+          <a class="btn view-details" (click)="viewDetails(product)">View Details</a>
+          <a class="btn add-to-cart"(click)="addToCart(product)">Add To Cart</a>
+        </div>
+      </div>
+    </ngx-slick-carousel>
+  </div>
+</div>
+
+<!-- Men's Products Section -->
+<div class="container">
+  <h3 class="products-list">Men's products</h3>
+
+  <div class="slide-swp">
+    <ngx-slick-carousel class="carousel" [config]="slideConfig">
+      <div ngxSlickItem *ngFor="let product of menProducts" class="product">
+        <div class="pic">
+          <img [src]="product.imageURL" alt="{{ product.name }}" class="product-image"/>
+        </div>
+        <div class="details">
+          <h4>{{ product.name }}</h4>
+          <p class="price">Price: {{ product.price | currency }}</p>
+        </div>
+        <div class="btn">
+          <a class="btn view-details" (click)="viewDetails(product)"  [routerLink]="['/products-details', product.id]" >View Details</a>
+          <a class="btn add-to-cart"(click)="addToCart(product)">Add To Cart</a>
+        </div>
+      </div>
+    </ngx-slick-carousel>
+  </div>
+</div>
+
+<!-- Women's Products Section -->
+<div class="container">
+  <h3 class="products-list">Women's products</h3>
+
+  <div class="slide-swp">
+    <ngx-slick-carousel class="carousel" [config]="slideConfig">
+      <div ngxSlickItem *ngFor="let product of womenProducts" class="product">
+        <div class="pic">
+          <img [src]="product.imageURL" alt="{{ product.name }}" class="product-image"/>
+        </div>
+        <div class="details">
+          <h4>{{ product.name }}</h4>
+          <p class="price">Price: {{ product.price | currency }}</p>
+        </div>
+        <div class="btn">
+          <a class="btn view-details" (click)="viewDetails(product)">View Details</a>
+          <a class="btn add-to-cart" (click)="addToCart(product)">Add To Cart</a>
+        </div>
+      </div>
+    </ngx-slick-carousel>
+  </div>
+</div>
+
+<!-- Children's Products Section -->
+<div class="container">
+  <h3 class="products-list">Children's products</h3>
+
+  <div class="slide-swp">
+    <ngx-slick-carousel class="carousel" [config]="slideConfig">
+      <div ngxSlickItem *ngFor="let product of childrenProducts" class="product">
+        <div class="pic">
+          <img [src]="product.imageURL" alt="{{ product.name }}" class="product-image"/>
+        </div>
+        <div class="details">
+          <h4>{{ product.name }}</h4>
+          <p class="price">Price: {{ product.price | currency }}</p>
+        </div>
+        <div class="btn">
+          <a class="btn view-details" (click)="viewDetails(product)">View Details</a>
+          <a class="btn add-to-cart"  (click)="addToCart(product)" >Add To Cart</a>
+        </div>
+      </div>
+    </ngx-slick-carousel>
+  </div>
+</div>
+
+
+<div class="modal" *ngIf="selectedProduct">
+
+  <div class="modal-content">
+   <i      (click)="closeModal()" class="fa-solid fa-xmark" ></i>
+    <h2>{{ selectedProduct.name }}</h2>
+
+    <img [src]="selectedProduct.imageURL" alt="{{ selectedProduct.name }}" />
+    
+    <div class="text">
+      <h3> {{ selectedProduct.description }}</h3>
+      
+      <p>Price: {{ selectedProduct.price | currency }}</p>
+    </div>
+    
+    <button (click)="closeModal()" class="btn close">Close</button>
+
+  </div>
+</div>

@@ -1,0 +1,51 @@
+<div class="add-product">
+  <h1>Add New Product</h1>
+  <form [formGroup]="addProductForm" (ngSubmit)="onSubmit()">
+
+
+    <div>
+      <label for="name">Product Name</label>
+      <input id="name" type="text" formControlName="name" />
+      <div *ngIf="addProductForm.get('name')?.invalid && addProductForm.get('name')?.touched">
+        <small *ngIf="addProductForm.get('name')?.hasError('required')">Name is required.</small>
+        <small *ngIf="addProductForm.get('name')?.hasError('minlength')">Name must be at least 3 characters.</small>
+      </div>
+    </div>
+
+
+    <div>
+      <label for="price">Price</label>
+      <input id="price" type="number" formControlName="price" />
+      <div *ngIf="addProductForm.get('price')?.invalid && addProductForm.get('price')?.touched">
+        <small *ngIf="addProductForm.get('price')?.hasError('required')">Price is required.</small>
+        <small *ngIf="addProductForm.get('price')?.hasError('min')">Price must be greater than 0.</small>
+      </div>
+    </div>
+
+
+
+    <div>
+      <label for="description">Description</label>
+      <textarea id="description" formControlName="description"></textarea>
+    </div>
+    <div>
+      <label for="category">Category</label>
+      <input id="category" type="text" formControlName="category" />
+    </div>
+    <div>
+      <label for="stock">Stock</label>
+      <input id="stock" type="number" formControlName="stock" />
+    </div>
+
+
+    <div>
+      <label for="image">Image</label>
+      <input id="image" type="file" (change)="onImageSelected($event)" />
+      <div *ngIf="!selectedImage">
+        <small>Please upload an image.</small>
+      </div>
+    </div>
+    
+    <button type="submit">Add Product</button>
+  </form>
+</div>

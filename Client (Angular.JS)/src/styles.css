@@ -1,0 +1,57 @@
+  /*  Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800&display=swap');
+
+
+/*Basics*/
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  font-family:'Rubik',sans-serif;
+}
+
+:root {
+  --main-color      : #0B60B0;
+  --main-color-2    : #0d6efd;
+  --second-color :  #40A2D8;
+  --dark-color      : #222222 ; 
+  --dark-red        : #d01418 ; 
+  --paragraph-color : #6666662a; ;
+  --border-color    : #6666662a; 
+  --name-items      : #0066c0 ;
+    --white-color : #fff ;
+}
+
+body {
+  background: #f5f6f9;
+  margin-top: 180px;
+  /* height: 180vh; */
+}
+
+h1,h2,h3,h4,h5,h6 {
+  color: var(--dark-color);
+}
+
+p {
+  /* font-size: 13px; */
+  color: #666666;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+}
+@media (max-width:1500px) {
+  .container {
+  width: 90%;
+}
+}
+.slick-prev, .slick-next {
+  display: none !important;
+}
+/* .slick-slide[aria-hidden="true"] {
+  visibility: hidden !important;  
+} */

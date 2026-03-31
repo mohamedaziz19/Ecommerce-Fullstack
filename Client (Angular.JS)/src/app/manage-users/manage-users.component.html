@@ -1,0 +1,24 @@
+<div class="users-management">
+  <h1>Users Management</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.role }}</td>
+        <td>
+          <button (click)="toggleRole(user._id, 'admin')" class="btn btn-primary">Make Admin</button>
+          <button (click)="toggleRole(user._id, 'user')" class="btn btn-secondary">Make User</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
